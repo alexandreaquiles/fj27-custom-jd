@@ -29,7 +29,6 @@
 	</build>
 
 	<modules>
-		<module>loja</module>
 		<module>administrativo</module>
 		<module>application</module>
 	</modules>
