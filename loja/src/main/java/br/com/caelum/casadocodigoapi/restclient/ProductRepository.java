@@ -2,14 +2,14 @@ package br.com.caelum.casadocodigoapi.restclient;
 
 import java.util.Optional;
 
-import org.springframework.stereotype.Component;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
-@Component
-public class ProductRepository {
+@FeignClient(name="administrativo", url="${administrativo.service.url}")
+public interface ProductRepository {
 
-	//TODO chamar o serviço administrativo
-	public Optional<ProductDto> findById(Long productId) {
-		return Optional.empty();
-	}
+	@GetMapping("/api/admin/products/{id}")
+	public Optional<ProductDto> findById(@PathVariable("id") Long productId);
 
 }
